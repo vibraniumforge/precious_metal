@@ -18,14 +18,18 @@ class PreciousMetal::CLI
     end
 
     def menu
-        input=nil
-        while input !="exit"
+        user_input=nil
+        while user_input !="exit"
             user_input=gets.strip
             if user_input.to_i.between?(1,4)
-                the_choice=PreciousMetal::Metal.all[user_input-1]
+                the_choice=PreciousMetal::Metal.all[user_input.to_i-1]
                 puts "The price of #{the_choice.name} is #{the_choice.price} U.S. dollars per Troy Ounce."           
             elsif user_input =="list"
-                list_metals_and_prices
+                puts "Welcome to the precious metal price app."
+               puts "Please choose one of the four precious metals to see their current price."
+               puts "Or enter 'list' to show the list again."
+                puts "Or 'exit' to exit the program."
+            elsif user_input =="exit"
             else
                 "Please enter a number, 1-4, 'list' or 'exit' to exit."
             end
