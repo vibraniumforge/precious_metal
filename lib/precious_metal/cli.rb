@@ -24,7 +24,7 @@ class PreciousMetal::CLI
             user_input=gets.strip
             if user_input.to_i.between?(1,4)
                 the_choice=PreciousMetal::Metal.all[user_input.to_i-1]
-                puts "The price of #{the_choice.name} is #{the_choice.price} U.S. dollars per Troy Ounce."           
+                puts "The current price of #{the_choice.name} is #{the_choice.price} U.S. dollars per Troy Ounce."           
             elsif user_input =="list"
               puts "Welcome to the precious metal price app."
                puts "Please choose one of the four precious metals to see their current price."
