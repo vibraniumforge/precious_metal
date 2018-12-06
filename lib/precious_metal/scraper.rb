@@ -1,18 +1,8 @@
-require_relative "./cli.rb"
-require_relative "./metal.rb"
-
-require 'open-uri'
-require "nokogiri"
-
 class PreciousMetal::Scraper
 
     attr_accessor :name, :price
 
-    def begin
-        self.scrape_page
-    end
-
-    def scrape_page
+    def self.scrape_page
         list=Nokogiri::HTML(open("https://goldprice.com/"))
         list.css(".nfusion-table.single-price").each do |metal_price|
             metal = {

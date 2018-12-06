@@ -1,8 +1,4 @@
-require_relative "./scraper.rb"
-require_relative "./metal.rb"
-
 class PreciousMetal::CLI
-
     
     def call
         list_metals_and_prices
@@ -13,8 +9,8 @@ class PreciousMetal::CLI
     def list_metals_and_prices
         puts "Welcome to the precious metal price app."
         puts "Please choose one of the four precious metals to see their current price."
-        PreciousMetals::Scraper.begin
-        PreciousMetals::Metal.all.each.with_index(1) do |index, metal|
+        PreciousMetal::Scraper.scrape_page
+        PreciousMetal::Metal.all.each.with_index(1) do |index, metal|
             puts "#{index}. #{metal}"
         end
     end

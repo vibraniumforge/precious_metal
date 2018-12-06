@@ -1,6 +1,7 @@
 require "precious_metal/version"
+require "precious_metal/metal"
+require "precious_metal/scraper"
+require "precious_metal/cli"
 
-module PreciousMetal
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require 'open-uri'
+require 'nokogiri'
