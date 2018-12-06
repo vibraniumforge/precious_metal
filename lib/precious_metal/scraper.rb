@@ -9,7 +9,7 @@ class PreciousMetal::Scraper
                 :name=> metal_price.css(".metal-title").text.gsub("Price", "").strip,
                 :price=> metal_price.css(".nfprice").text.strip
         }
-        Metal.create_metal(metal)
+        PreciousMetal::Metal.create_metal(metal)
         end
     end
 

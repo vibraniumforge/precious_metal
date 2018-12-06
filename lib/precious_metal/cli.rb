@@ -10,8 +10,8 @@ class PreciousMetal::CLI
         puts "Welcome to the precious metal price app."
         puts "Please choose one of the four precious metals to see their current price."
         PreciousMetal::Scraper.scrape_page
-        PreciousMetal::Metal.all.each.with_index(1) do |index, metal|
-            puts "#{index}. #{metal}"
+        PreciousMetal::Metal.all.each.with_index(1) do |metal, index|
+            puts "#{index}. #{metal.name}"
         end
     end
 
@@ -21,7 +21,7 @@ class PreciousMetal::CLI
             puts "Or enter 'list' to show the list again."
             user_input=gets.strip.to_i
             if user_input.between(1..4)
-                the_choice=PreciousMetals::Metal.all[user_input-1]
+                the_choice=PreciousMetal::Metal.all[user_input-1]
                 puts "The price of #{the_choice.name} is #{the_choice.price} U.S. dollars per Troy Ounce."           
             elsif user_input =="list"
                 list_metals_and_prices

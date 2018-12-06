@@ -11,7 +11,7 @@ class PreciousMetal::Metal
     end
 
     def self.create_metal(metal_hash)
-      metal = Metal.new()
+      metal = self.new
       metal.name = metal_hash[:name]
       metal.price = metal_hash[:price]
     end
