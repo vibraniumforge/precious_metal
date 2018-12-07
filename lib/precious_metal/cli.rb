@@ -2,21 +2,28 @@ class PreciousMetal::CLI
     
     def call
         greet
+        scrape
         list_metals_and_prices
         menu
         goodbye
     end
     
     def greet
-      puts "Welcome to the precious metal price app!"
+      puts ""
+      puts "Welcome to the Precious Metal Price App!"
+    end
+    
+    def scrape
+      PreciousMetal::Scraper.scrape_page
     end
       
     def list_metals_and_prices
-        puts "Please enter 1-4 to choose to view the current price of"
-        puts "one of the four precious metals."
-        puts "Or enter 'list' to show the list again."
+        puts ""
+        puts "Please enter 1-4 to choose to view the current price"
+        puts "of one of the four precious metals."
+        puts "Enter 'list' to show the list again."
         puts "Or 'exit' to exit the program."
-        PreciousMetal::Scraper.scrape_page
+        puts ""
         PreciousMetal::Metal.all.each.with_index(1) do |metal, index|
             puts "#{index}. #{metal.name}"
         end
@@ -28,11 +35,9 @@ class PreciousMetal::CLI
             user_input=gets.strip
             if user_input.to_i.between?(1,4)
                 the_choice=PreciousMetal::Metal.all[user_input.to_i-1]
-                puts "The current price of #{the_choice.name} is #{the_choice.price} U.S. dollars per Troy Ounce."           
+                puts "The current price of #{the_choice.name} is < #{the_choice.price} > U.S. dollars per Troy Ounce."           
             elsif user_input =="list"
-              puts "Please choose one of the four precious metals to see their current price."
-              puts "Or enter 'list' to show the list again."
-              puts "Or 'exit' to exit the program."
+              list_metals_and_prices
             elsif user_input =="exit"
             else
               puts "Please enter a number, 1-4, 'list' or 'exit' to exit."
@@ -41,7 +46,9 @@ class PreciousMetal::CLI
     end
 
     def goodbye
-        puts"Goodbye! Thanks for using this app!"
+        puts ""
+        puts"Goodbye! Thanks for using the Precious Metal Price App!"
+        puts ""
     end
 
 end
