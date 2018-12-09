@@ -14,7 +14,7 @@ class PreciousMetal::CLI
     end
     
     def scrape
-      PreciousMetal::Scraper.scrape_page
+      PreciousMetal::Scraper.new.scrape_page
     end
       
     def list_metals_and_prices
