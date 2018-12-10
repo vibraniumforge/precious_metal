@@ -1,3 +1,4 @@
+
 class PreciousMetal::CLI
     
     def call
@@ -33,15 +34,17 @@ class PreciousMetal::CLI
         user_input=nil
         while user_input !="exit"
             user_input=gets.strip
-            if user_input.to_i.between?(1,4)
+            case user_input
+              when "1" , "2" , "3" , "4" 
                 the_choice=PreciousMetal::Metal.all[user_input.to_i-1]
-                puts "The current price of #{the_choice.name} is < #{the_choice.price} > U.S. dollars per Troy Ounce."           
-            elsif user_input =="list"
-              list_metals_and_prices
-            elsif user_input =="exit"
-            else
-              puts "Please enter a number, 1-4, 'list' or 'exit' to exit."
-            end
+                 puts "The current price of #{the_choice.name} is < #{the_choice.price} > U.S. dollars per Troy Ounce."
+              when "list"   
+                list_metals_and_prices
+              when "exit"
+                break
+              else   
+                puts "Please enter a number, 1-4, 'list' or 'exit' to exit."
+              end
         end
     end
 
