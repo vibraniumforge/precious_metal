@@ -1,26 +1,13 @@
 # PreciousMetal
-Hello. My precious metal gem allows the user to download the prices of the 4 precious metals, which are gold, silver, platinum, and palladium. The prices are given in U.S. dollars.
+My precious metal gem allows the user to download the prices of the 4 precious metals, which are gold, silver, platinum, and palladium. The prices are given in U.S. dollars.
+
+It uses Nokogiri to scrape a website. The information is then captured. The user is presented with a command line prompt. The user can view the price of any of the 4 metals. They can repeat the prompt. Or they can exit. 
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'precious_metal'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install precious_metal
-
-## Usage
-
-## Development
-
+git clone from this git hub.
+cd into the "precious_metal" directory.
+enter "ruby bin/precious-metal"
 
 ## Contributing
 
