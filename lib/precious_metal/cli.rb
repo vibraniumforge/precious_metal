@@ -28,6 +28,7 @@ class PreciousMetal::CLI
         PreciousMetal::Metal.all.each.with_index(1) do |metal, index|
             puts "#{index}. #{metal.name}"
         end
+        puts ""
     end
 
     def menu
@@ -37,7 +38,8 @@ class PreciousMetal::CLI
             case user_input
               when "1" , "2" , "3" , "4" 
                 the_choice=PreciousMetal::Metal.all[user_input.to_i-1]
-                 puts "The current price of #{the_choice.name} is < #{the_choice.price} > U.S. dollars per Troy Ounce."
+                 puts "The current price of #{the_choice.name} is"
+                 puts "< #{the_choice.price} > U.S. dollars per Troy Ounce."
               when "list"   
                 list_metals_and_prices
               when "exit"
